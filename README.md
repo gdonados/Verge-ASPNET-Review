@@ -58,3 +58,6 @@ API devloped using Microsoft Entity Framework 6
 Posting a new specific asset such as a drone requires **form data** containing all relevant model information. No primary key needs to be provided.
 Each model is inherited by a _form model_, which implements organization information, to properly create a new asset entry.
 Due to this, an organization id must also be provided in the form data to properly assign.
+
+## Instructions
+Update default connection string as needed in `appsettings.json` and `launchsettings.json` to proper localhost ports. Execution should default to running the swagger UI to test the defined models and controllers.
