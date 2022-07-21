@@ -17,7 +17,7 @@ namespace VergeDBAPI.Controllers
 
         // GET: v1/Assets
         [HttpGet]
-        public async Task<ActionResult<IEnumerable<Assets>>> GetAssets()
+        public async Task<ActionResult<IEnumerable<Asset>>> GetAssets()
         {
             if (_context.Assets == null)
             {
@@ -29,7 +29,7 @@ namespace VergeDBAPI.Controllers
 
         // GET: v1/Assets/5
         [HttpGet("{id}")]
-        public async Task<ActionResult<Assets>> GetAssets(int id)
+        public async Task<ActionResult<Asset>> GetAssets(int id)
         {
             if (_context.Assets == null)
             {
@@ -101,7 +101,7 @@ namespace VergeDBAPI.Controllers
         // PUT: v1/assets/5
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
         [HttpPut("{id}")]
-        public async Task<IActionResult> PutAssets(int id, Assets assets)
+        public async Task<IActionResult> PutAssets(int id, Asset assets)
         {
             if (id != assets.AssetID)
             {
@@ -132,7 +132,7 @@ namespace VergeDBAPI.Controllers
         // POST: v1/Assets/Drone
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
         [HttpPost("drone")]
-        public async Task<ActionResult<Assets>> PostAssets([FromForm] DroneForm drone)
+        public async Task<ActionResult<Asset>> PostAssets([FromForm] DroneForm drone)
         {
             if (_context.Assets == null)
             {
@@ -152,7 +152,7 @@ namespace VergeDBAPI.Controllers
             _context.Entry(newDrone).GetDatabaseValues();
 
             //Would rather have a way to get new PK immediately without saving
-            Assets newAsset = new Assets()
+            Asset newAsset = new Asset()
             {
                 TypeID = AssetType.Drone,
                 TableKey = newDrone.DroneID,
@@ -169,7 +169,7 @@ namespace VergeDBAPI.Controllers
         // POST: v1/Assets/battery
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
         [HttpPost("battery")]
-        public async Task<ActionResult<Assets>> PostAssets([FromForm] BatteryForm battery)
+        public async Task<ActionResult<Asset>> PostAssets([FromForm] BatteryForm battery)
         {
             if (_context.Assets == null)
             {
@@ -187,7 +187,7 @@ namespace VergeDBAPI.Controllers
 
             //Would rather have a way to get new PK immediately without saving
 
-            Assets newAsset = new Assets()
+            Asset newAsset = new Asset()
             {
                 TypeID = AssetType.Battery,
                 TableKey = newBattery.BatteryID,

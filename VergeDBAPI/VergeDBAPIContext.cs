@@ -11,7 +11,7 @@ namespace VergeDBAPI
         {
         }
 
-        public DbSet<Assets> Assets { get; set; }
+        public DbSet<Asset> Assets { get; set; }
         public DbSet<Drone> Drones { get; set; }
         public DbSet<Battery> Batteries { get; set; }
 
@@ -27,7 +27,7 @@ namespace VergeDBAPI
                 .IsUnique();
 
             //Only 1 asset entry per table key
-            modelBuilder.Entity<Assets>()
+            modelBuilder.Entity<Asset>()
                 .HasIndex(u => new { u.TypeID, u.TableKey })
                 .IsUnique();
 
@@ -84,7 +84,7 @@ namespace VergeDBAPI
             });
 
             //Assets
-            modelBuilder.Entity<Assets>().HasData(new Assets
+            modelBuilder.Entity<Asset>().HasData(new Asset
             {
                 AssetID = 1,
                 TypeID = AssetType.Drone,
@@ -92,7 +92,7 @@ namespace VergeDBAPI
                 OrganizationID = OrganizationId.Unowned
             });
 
-            modelBuilder.Entity<Assets>().HasData(new Assets
+            modelBuilder.Entity<Asset>().HasData(new Asset
             {
                 AssetID = 2,
                 TypeID = AssetType.Drone,
@@ -100,7 +100,7 @@ namespace VergeDBAPI
                 OrganizationID = OrganizationId.Go
             });
 
-            modelBuilder.Entity<Assets>().HasData(new Assets
+            modelBuilder.Entity<Asset>().HasData(new Asset
             {
                 AssetID = 3,
                 TypeID = AssetType.Drone,
@@ -108,7 +108,7 @@ namespace VergeDBAPI
                 OrganizationID = OrganizationId.Verge
             });
 
-            modelBuilder.Entity<Assets>().HasData(new Assets
+            modelBuilder.Entity<Asset>().HasData(new Asset
             {
                 AssetID = 4,
                 TypeID = AssetType.Drone,
@@ -116,7 +116,7 @@ namespace VergeDBAPI
                 OrganizationID = OrganizationId.Unowned
             });
 
-            modelBuilder.Entity<Assets>().HasData(new Assets
+            modelBuilder.Entity<Asset>().HasData(new Asset
             {
                 AssetID = 5,
                 TypeID = AssetType.Battery,
@@ -124,7 +124,7 @@ namespace VergeDBAPI
                 OrganizationID = OrganizationId.Strictly
             });
 
-            modelBuilder.Entity<Assets>().HasData(new Assets
+            modelBuilder.Entity<Asset>().HasData(new Asset
             {
                 AssetID = 6,
                 TypeID = AssetType.Battery,
@@ -132,7 +132,7 @@ namespace VergeDBAPI
                 OrganizationID = OrganizationId.Strictly
             });
 
-            modelBuilder.Entity<Assets>().HasData(new Assets
+            modelBuilder.Entity<Asset>().HasData(new Asset
             {
                 AssetID = 7,
                 TypeID = AssetType.Battery,
